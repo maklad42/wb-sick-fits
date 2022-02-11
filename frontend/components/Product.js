@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Link from 'next/link';
 import ItemStyles from './styles/ItemStyles';
 import Title from './styles/Title';
@@ -16,7 +17,18 @@ export default function Product({ product }) {
       </Title>
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
-      {/* TODO: Add buttons to edit and delete item */}
+      <div className="buttonList">
+        <Link
+          href={{
+            pathname: 'update',
+            query: {
+              id: product.id,
+            },
+          }}
+        >
+          Edit ✐
+        </Link>
+      </div>
     </ItemStyles>
   );
 }
