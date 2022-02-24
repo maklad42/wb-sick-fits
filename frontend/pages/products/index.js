@@ -1,4 +1,3 @@
-import { QueryDocumentKeys } from 'graphql/language/visitor';
 import { useRouter } from 'next/router';
 import Pagination from '../../components/Pagination';
 import Products from '../../components/Products';

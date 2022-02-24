@@ -19,7 +19,7 @@ export default function paginationField() {
       // If there are items
       // AND there aren't enough to fill the page
       // AND we are on the last page
-      // THEN jmust send it
+      // THEN just send it
       if (items.length && items.length !== first && page === pages) {
         return items;
       }
@@ -51,6 +51,7 @@ export default function paginationField() {
       for (let i = skip; i < skip + incoming.length; ++i) {
         merged[i] = incoming[i - skip];
       }
+      return merged;
     },
   };
 }
