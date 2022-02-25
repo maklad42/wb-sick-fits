@@ -1,3 +1,4 @@
+import { CartItem } from './schemas/CartItems';
 import 'dotenv/config';
 import { createAuth } from '@keystone-next/auth';
 import { config, createSchema } from '@keystone-next/keystone/schema';
@@ -52,6 +53,7 @@ export default withAuth(
       User,
       Product,
       ProductImage,
+      CartItem,
     }),
     ui: {
       // Show this UI only for people who pass this test
