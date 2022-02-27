@@ -46,10 +46,10 @@ function CartItem({ cartItem }) {
 
 export default function Cart() {
   const me = useUser();
-  const { cartOpen, closeCart } = useCart();
+  const { cartOpen, openCart, closeCart } = useCart();
   if (!me) return null;
   return (
-    <CartStyles open>
+    <CartStyles open={cartOpen}>
       <header>
         <Supreme>{me.name}'s Cart</Supreme>
         <CloseButton onClick={closeCart}>&times;</CloseButton>
