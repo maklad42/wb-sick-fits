@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useCart } from '../lib/cartState';
+import SignOut from './SignOut';
 import NavStyles from './styles/NavStyles';
 import { useUser } from './User';
 
@@ -17,6 +18,7 @@ export default function Nav() {
           <button type="button" onClick={openCart}>
             My Cart
           </button>
+          <SignOut />
         </>
       )}
       {!user && (
