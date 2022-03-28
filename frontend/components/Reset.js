@@ -21,11 +21,11 @@ const RESET_MUTATION = gql`
   }
 `;
 
-export default function Reset() {
+export default function Reset({ token }) {
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
     password: '',
-    token: '',
+    token,
   });
   const [reset, { data, loading, error }] = useMutation(RESET_MUTATION, {
     variables: inputs,
@@ -34,7 +34,7 @@ export default function Reset() {
   const successfulError = data?.redeemUserPasswordResetToken?.code
     ? data?.redeemUserPasswordResetToken
     : undefined;
-  console.log(error);
+  console.log(successfulError);
 
   async function handleSubmit(e) {
     e.preventDefault();
