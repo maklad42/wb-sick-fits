@@ -1,6 +1,7 @@
 import { KeystoneContext } from '@keystone-next/types';
 import { Session } from '../types';
 import { CartItem } from '../schemas/CartItem';
+
 import { CartItemCreateInput } from '../.keystone/schema-types';
 
 async function addToCart(
@@ -18,8 +19,11 @@ async function addToCart(
   // 2. Query the current users cart
   const allCartItems = await context.lists.CartItem.findMany({
     where: { user: { id: sesh.itemId }, product: { id: productId } },
+    resolveFields: 'id, quantity',
   });
+  console.log(allCartItems);
   const [existingCartItem] = allCartItems;
+  console.log(existingCartItem);
   if (existingCartItem) {
     console.log(
       `There are already ${existingCartItem.quantity}, in the cart, increment by one!`
